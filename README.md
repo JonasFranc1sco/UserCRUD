@@ -6,7 +6,7 @@ Sistema de cadastro de usuários com funcionalidades completas de CRUD, desenvol
 
 ## Tecnologias
 
-- Python 3
+- Python
 - Django
 - PostgreSQL
 - Docker e Docker Compose
