@@ -9,10 +9,10 @@ def create_user(request):
         form = UserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login_user')
+            return redirect('login/')
     else:
         form = UserForm()
-    return render(request, 'crud/login_user.html', {'form':form})
+    return render(request, 'crud/create_user.html', {'form':form})
 
 def login_user(request):
     if request.method == 'POST':
@@ -21,9 +21,9 @@ def login_user(request):
             name = form.cleaned_data['name']
             password = form.cleaned_data['password']           
             if User.objects.filter(name=name, password=password).exists():
-                return redirect('list_users')
+                return redirect('/read/')
             else:
-                return redirect('create_user')
+                return redirect('/login/')
     else:
         form = UserForm()
     return render(request, 'crud/login_user.html', {'form':form})
